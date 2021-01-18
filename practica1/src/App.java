@@ -18,7 +18,7 @@ public class App {
         System.out.println("=> Opción 6: Eliminar espacios de un texto                    ");
         System.out.println("=> Opción 7: Concatenar dos cadenas                           ");
         System.out.println("=> Opción 8: Cambiar las vocales por una especificada         ");
-        System.out.println("=> Opción 9:");
+        System.out.println("=> Opción 9: Mostrar códigos ASCII                            ");
         System.out.println("============================================");
         
         System.out.println("=> Inserta la opción deseada");
@@ -69,14 +69,17 @@ public class App {
                 String vocal = input.nextLine();
                 vocalizador(texto, vocal);
                 break;
-            case 9:
+            case 9: // Mostrar códigos ASCII
+                System.out.println("=> Mostrar códigos ASCII de cada carácter de una cadena");
+                texto = input.nextLine();
+                mostrar_ascii(texto);
                 break;
             default:
                 main(args);
         }
     }
 
-    public static Integer[] numericos() { // Almacenar 5 números en un array
+    public static void numericos() { // Almacenar 5 números en un array
         System.out.println("\n===> Añadir numeros a un array.\n");
         Integer[] array_nums = new Integer[5];
 
@@ -88,7 +91,6 @@ public class App {
         }
 
         System.out.println("=> El array ahora es: " + Arrays.toString(array_nums));
-        return array_nums;
     }
 
     public static void inverso(){ // Introducir 5 números e imprimirlos al inverso
@@ -172,5 +174,13 @@ public class App {
             }
         }
         System.out.println("=> El texto final es:\n   " + texto_final);
+    }
+
+    public static void mostrar_ascii(String texto) { // Mostrar códigos ASCII
+        System.out.println("=> Mostrando códigos ASCII");
+        for (int i = 0; i < texto.length(); i++) {
+            int ascii = (int) texto.charAt(i);
+            System.out.println(" > \'" + texto.charAt(i) + "\' = " + ascii);
+        }
     }
 }
