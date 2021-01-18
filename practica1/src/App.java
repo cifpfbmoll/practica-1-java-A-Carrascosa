@@ -1,8 +1,6 @@
 package practica1.src;
+
 import java.util.Scanner;
-import java.awt.List;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class App {
     static Scanner input = new Scanner(System.in);
