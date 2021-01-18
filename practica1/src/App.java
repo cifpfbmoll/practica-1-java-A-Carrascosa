@@ -14,7 +14,7 @@ public class App {
         System.out.println("=> Opción 4: Leer la cantidad de caracteres en una cadena.    ");
         System.out.println("=> Opción 5: Invertir texto introducido                       ");
         System.out.println("=> Opción 6: Eliminar espacios de un texto                    ");
-        System.out.println("=> Opción 7:");
+        System.out.println("=> Opción 7: Concatenar dos cadenas                           ");
         System.out.println("=> Opción 8:");
         System.out.println("=> Opción 9:");
         System.out.println("============================================");
@@ -22,29 +22,41 @@ public class App {
         System.out.println("=> Inserta la opción deseada");
         int opcion = input.nextInt();
         input.nextLine(); // Limpiar buffer dentro del input
+        String texto = "";
 
         switch (opcion){
-            case 1:
-                numericos(); // Almacenar 5 números en un array
+            case 1: // Almacenar 5 números en un array
+                numericos();
                 break;
-            case 2:
-                inverso(); // Introducir 5 números e imprimirlos al inverso
+            case 2: // Introducir 5 números e imprimirlos al inverso
+                inverso();
                 break;
-            case 3:
-                media(); // Media de números y contador de ceros
+            case 3: // Media de números y contador de ceros
+                media();
                 break;
-            case 4:
-                cantidad_caracteres(); // Leer la cantidad de caracteres en una cadena
+            case 4: // Leer la cantidad de caracteres en una cadena
+                System.out.println("\n===> Contar carácteres de una cadena.\n");
+                String cadena = input.nextLine();
+                int cantidad_caracteres = cantidad_caracteres(cadena);
+                System.out.println("=> La cadena introducida tiene " + cantidad_caracteres + " carácteres.");
                 break;
-            case 5:
-                String texto = input.nextLine();
-                String texto_invertido = invertir_texto(texto); // Invertir texto introducido
+            case 5: // Invertir texto introducido
+                System.out.println("\n===> Invertir el texto de una cadena.\n");
+                texto = input.nextLine();
+                String texto_invertido = invertir_texto(texto);
                 System.out.println("=> El texto invertido es:\n   " + texto_invertido);
                 break;
-            case 6:
-                condensador(); // Eliminar espacios de un texto
+            case 6: // Eliminar espacios de un texto
+                System.out.println("\n===> Condensar los espacios de una cadena.\n");
+                texto = input.nextLine();
+                String texto_condensado = condensador(texto);
+                System.out.println("=> El texto condensado es:\n   " + texto_condensado);
                 break;
-            case 7:
+            case 7: // Concatenar dos cadenas
+                String texto_1 = input.nextLine();
+                String texto_2 = input.nextLine();
+                String texto_concatenado = concatenar_cadenas(texto_1, texto_2);
+                System.out.println("=> El texto concatenado es:\n   " + texto_concatenado);
                 break;
             case 8:
                 break;
@@ -113,10 +125,8 @@ public class App {
         System.out.println("\n===> La media de positivos es de: "+media_positivos+"; la de negativos: "+media_negativos+"; y hay "+ contador_ceros+" ceros.");
     }
 
-    public static void cantidad_caracteres() { // Leer la cantidad de caracteres en una cadena
-        System.out.println("\n===> Contar carácteres de una cadena.\n");
-        String cadena = input.nextLine();
-        System.out.println("=> La cadena introducida tiene " + cadena.length() + " carácteres.");
+    public static int cantidad_caracteres(String cadena) { // Leer la cantidad de caracteres en una cadena
+        return cadena.length();
     }
 
     public static String invertir_texto(String texto) { // Invertir texto introducido
@@ -127,14 +137,18 @@ public class App {
         return texto_invertido;
     }
 
-    public static void condensador() { // Eliminar espacios de un texto
-        String texto = input.nextLine();
+    public static String condensador(String texto) { // Eliminar espacios de un texto
         String texto_condensado = "";
         for (int i = 0; i < texto.length(); i++) {
             if (texto.charAt(i) != ' ') {
                 texto_condensado = texto_condensado + texto.charAt(i);
             }
         }
-        System.out.println("=> El texto condensado es:\n   " + texto_condensado);
+        return texto_condensado;
+    }
+
+    public static String concatenar_cadenas(String texto_1, String texto_2) { // Concatenar dos cadenas
+        String texto_concatenado = texto_1 + " " + texto_2;
+        return texto_concatenado;
     }
 }
