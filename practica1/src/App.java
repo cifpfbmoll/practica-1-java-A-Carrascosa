@@ -1,6 +1,7 @@
 package practica1.src;
 
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class App {
     static Scanner input = new Scanner(System.in);
@@ -77,7 +78,7 @@ public class App {
         }
     }
 
-    public static void numericos() { // Almacenar 5 números en un array
+    public static Integer[] numericos() { // Almacenar 5 números en un array
         System.out.println("\n===> Añadir numeros a un array.\n");
         Integer[] array_nums = new Integer[5];
 
@@ -89,6 +90,7 @@ public class App {
         }
 
         System.out.println("=> El array ahora es: " + Arrays.toString(array_nums));
+        return array_nums;
     }
 
     public static void inverso(){ // Introducir 5 números e imprimirlos al inverso
