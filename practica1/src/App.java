@@ -17,7 +17,7 @@ public class App {
         System.out.println("=> Opción 7: Concatenar dos cadenas                           ");
         System.out.println("=> Opción 8: Cambiar las vocales por una especificada         ");
         System.out.println("=> Opción 9: Mostrar códigos ASCII                            ");
-        System.out.println("============================================");
+        System.out.println("==============================================================");
         
         System.out.println("=> Inserta la opción deseada");
         int opcion = input.nextInt();
