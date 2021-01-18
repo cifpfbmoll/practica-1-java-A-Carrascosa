@@ -1,5 +1,7 @@
 package practica1.src;
 import java.util.Scanner;
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class App {
@@ -15,7 +17,7 @@ public class App {
         System.out.println("=> Opción 5: Invertir texto introducido                       ");
         System.out.println("=> Opción 6: Eliminar espacios de un texto                    ");
         System.out.println("=> Opción 7: Concatenar dos cadenas                           ");
-        System.out.println("=> Opción 8:");
+        System.out.println("=> Opción 8: Cambiar las vocales por una especificada         ");
         System.out.println("=> Opción 9:");
         System.out.println("============================================");
         
@@ -53,12 +55,19 @@ public class App {
                 System.out.println("=> El texto condensado es:\n   " + texto_condensado);
                 break;
             case 7: // Concatenar dos cadenas
+                System.out.println("\n===> Condensar los espacios de una cadena.\n");
                 String texto_1 = input.nextLine();
                 String texto_2 = input.nextLine();
                 String texto_concatenado = concatenar_cadenas(texto_1, texto_2);
                 System.out.println("=> El texto concatenado es:\n   " + texto_concatenado);
                 break;
-            case 8:
+            case 8: // Cambiar las vocales por una especificada
+                System.out.println("\n===> Modificar todas las vocales por la vocal especificada.\n");
+                System.out.println("\n===> Frase:");
+                texto = input.nextLine();
+                System.out.println("\n===> Vocal:");
+                String vocal = input.nextLine();
+                vocalizador(texto, vocal);
                 break;
             case 9:
                 break;
@@ -132,7 +141,7 @@ public class App {
     public static String invertir_texto(String texto) { // Invertir texto introducido
         String texto_invertido = "";
         for(int i = texto.length() - 1; i >= 0; i--) {
-            texto_invertido = texto_invertido + texto.charAt(i);
+            texto_invertido += texto.charAt(i);
         }
         return texto_invertido;
     }
@@ -141,7 +150,7 @@ public class App {
         String texto_condensado = "";
         for (int i = 0; i < texto.length(); i++) {
             if (texto.charAt(i) != ' ') {
-                texto_condensado = texto_condensado + texto.charAt(i);
+                texto_condensado += texto.charAt(i);
             }
         }
         return texto_condensado;
@@ -150,5 +159,18 @@ public class App {
     public static String concatenar_cadenas(String texto_1, String texto_2) { // Concatenar dos cadenas
         String texto_concatenado = texto_1 + " " + texto_2;
         return texto_concatenado;
+    }
+
+    public static void vocalizador(String texto, String vocal) { // Cambiar las vocales por una especificada
+        String texto_final = "";
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == 'a' || texto.charAt(i) == 'e' || texto.charAt(i) == 'i' || texto.charAt(i) == 'o'
+                    || texto.charAt(i) == 'u') {
+                texto_final += vocal;
+            } else {
+                texto_final += texto.charAt(i);
+            }
+        }
+        System.out.println("=> El texto final es:\n   " + texto_final);
     }
 }
